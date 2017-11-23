@@ -4,7 +4,9 @@ import Form from './Form';
 
 const TodoPage = () => (
   <div className="todo-page">
-    <Form />
+    <Form
+      onSubmit={e => this.handleTodoSubmit(e)}
+    />
     <TodoList />
   </div>
 );
