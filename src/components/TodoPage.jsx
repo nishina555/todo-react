@@ -3,7 +3,7 @@ import TodoList from './TodoList';
 import Form from './Form';
 
 const TodoPage = () => (
-  <div>
+  <div className="todo-page">
     <Form />
     <TodoList />
   </div>

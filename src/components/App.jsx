@@ -2,7 +2,7 @@ import React from 'react';
 import TodoPage from './TodoPage';
 
 const App = () => (
-  <div>
+  <div className="app">
     <TodoPage />
   </div>
 );

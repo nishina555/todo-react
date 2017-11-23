@@ -1,0 +1,18 @@
+$form-font-size: 20px;
+
+.form {
+  margin-bottom: 30px;
+}
+
+.place-input {
+  font-size: $form-font-size;
+}
+
+.submit-button {
+  -webkit-appearance: none;
+  font-size: $form-font-size;
+  margin-left: 5px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
