@@ -1,6 +1,19 @@
-import React from 'react'
-export class App extends React.Component {
-  render (){
-    return <h1>Hello!</h1>
-  }
-}
+import React from 'react';
+import TodoList from './TodoList';
+
+const App = () => (
+  <div>
+    <form>
+      <input type="text" placeholder="title" />
+      {/* <textarea placeholder="description" rows="8" /><br /> */}
+      <button type="submit">Create</button>
+    </form>
+    <div>
+      <ul>
+        <li>todo1</li>
+        <li>todo2</li>
+      </ul>
+    </div>
+  </div>
+);
+export default App;
