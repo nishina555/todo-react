@@ -5,6 +5,7 @@
   "author": "nishina555 <toshiharu.nishina@spacemarket.co.jp>",
   "license": "MIT",
   "dependencies": {
+    "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1"
   },

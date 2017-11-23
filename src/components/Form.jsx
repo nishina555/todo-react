@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Form = () => (
-  <form className="form">
+const Form = props => (
+  <form className="form" onSubmit={e => props.onSubmit(e)}>
     <input
       className="place-input"
       type="text"
@@ -12,5 +13,9 @@ const Form = () => (
     <input className="submit-button" type="submit" value="Add" />
   </form>
 );
+
+Form.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default Form;
