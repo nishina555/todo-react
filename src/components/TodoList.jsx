@@ -5,13 +5,18 @@ import PropTypes from 'prop-types';
 import Todo from './Todo';
 
 class TodoList extends React.PureComponent {
+  onTodoClick(todo) {
+    this.props.onTodoClick(todo);
+  }
   render() {
     const todos = [];
     for (let i = 0; i < this.props.todos.length; i += 1) {
       todos.push(<Todo
         key={i}
+        id={i}
         title={this.props.todos[i].title}
-        done={this.props.todos[i].done}
+        status={this.props.todos[i].status}
+        onTodoClick={this.onTodoClick.bind(this)}
       />);
     }
     return (

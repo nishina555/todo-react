@@ -16,7 +16,19 @@ class App extends Component {
     });
   }
 
+  handleTodoClick(todo) {
+    console.log('handele App');
+    const stateCopy = Object.assign([], this.state.todos);
+    stateCopy[todo.id].status = todo.status;
+    this.setState({
+      todos: stateCopy,
+    });
+    console.log(this.state.todos);
+  }
+
   render() {
+    console.log('render');
+    console.log(this.state.todos);
     return (
       <div className="app">
         <h1>TODO Management</h1>
@@ -25,6 +37,7 @@ class App extends Component {
         />
         <TodoList
           todos={this.state.todos}
+          onTodoClick={this.handleTodoClick.bind(this)}
         />
       </div>
     );

@@ -1,36 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-// const Todo = props => (
-//   <li>
-//     {props.title}
-//   </li>
-// );
-
 class Todo extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: this.props.id,
       title: this.props.title,
-      done: this.props.done,
+      status: this.props.status,
     };
   }
 
   handleClick(e) {
     e.preventDefault();
-    this.setState({
-      done: !this.state.done,
+    this.props.onTodoClick({
+      id: this.props.id,
+      title: this.props.title,
+      status: this.props.status === 'Active' ? 'Completed' : 'Active',
     });
   }
   render() {
-    const link = this.state.done ? 'Undone' : 'Done';
     const style = {
-      textDecoration: this.state.done ? 'line-through' : 'none',
+      textDecoration: this.props.status === 'Active' ? 'none' : 'line-through',
     };
 
     return (
       <li style={style} onClick={this.handleClick.bind(this)}>
-        {this.state.title}
+        {this.props.title}
       </li>
     );
   }
@@ -38,7 +34,7 @@ class Todo extends Component {
 
 Todo.propTypes = {
   title: PropTypes.string.isRequired,
-  done: PropTypes.bool.isRequired,
+  status: PropTypes.string.isRequired,
 };
 
 export default Todo;

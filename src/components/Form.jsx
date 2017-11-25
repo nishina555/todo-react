@@ -12,11 +12,12 @@ class Form extends Component {
     this.props.onTodoSubmit({
       id: new Date(),
       title,
-      done: false,
+      status: 'Active',
     });
 
     this.refs.title.value = '';
   }
+
   render() {
     return (
       <form className="form" onSubmit={this.handlesubmit.bind(this)}>
