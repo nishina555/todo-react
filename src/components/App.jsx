@@ -17,21 +17,10 @@ class App extends Component {
     });
   }
 
-  handleActive() {
+  handleChangeFilter(e) {
+    const filter = e.currentTarget.getAttribute('data-filter');
     this.setState({
-      filter: 'Active',
-    });
-  }
-
-  handleAll() {
-    this.setState({
-      filter: 'All',
-    });
-  }
-
-  handleComplete() {
-    this.setState({
-      filter: 'Completed',
+      filter,
     });
   }
 
@@ -56,9 +45,9 @@ class App extends Component {
           onTodoClick={this.handleTodoClick.bind(this)}
         />
         <div className="filter-list">
-          <span className="filter-name" onClick={this.handleAll.bind(this)}>All</span>
-          <span className="filter-name" onClick={this.handleActive.bind(this)}>Active</span>
-          <span className="filter-name" onClick={this.handleComplete.bind(this)}>Completed</span>
+          <span className="filter-name" data-filter="All" onClick={this.handleChangeFilter.bind(this)}>All</span>
+          <span className="filter-name" data-filter="Active" onClick={this.handleChangeFilter.bind(this)}>Active</span>
+          <span className="filter-name" data-filter="Completed" onClick={this.handleChangeFilter.bind(this)}>Completed</span>
         </div>
       </div>
     );
