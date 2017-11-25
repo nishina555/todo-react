@@ -2,16 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class Todo extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: this.props.id,
-      title: this.props.title,
-      status: this.props.status,
-    };
-  }
-
-  handleClick(e) {
+  onTodoClick(e) {
     e.preventDefault();
     this.props.onTodoClick({
       id: this.props.id,
@@ -25,7 +16,7 @@ class Todo extends Component {
     };
 
     return (
-      <li style={style} onClick={this.handleClick.bind(this)}>
+      <li style={style} onClick={this.onTodoClick.bind(this)}>
         {this.props.title}
       </li>
     );
@@ -33,8 +24,10 @@ class Todo extends Component {
 }
 
 Todo.propTypes = {
+  id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   status: PropTypes.string.isRequired,
+  onTodoClick: PropTypes.func.isRequired,
 };
 
 export default Todo;

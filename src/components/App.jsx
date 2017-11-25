@@ -7,6 +7,7 @@ class App extends Component {
     super();
     this.state = {
       todos: [],
+      filter: 'All',
     };
   }
 
@@ -16,19 +17,33 @@ class App extends Component {
     });
   }
 
+  handleActive() {
+    this.setState({
+      filter: 'Active',
+    });
+  }
+
+  handleAll() {
+    this.setState({
+      filter: 'All',
+    });
+  }
+
+  handleComplete() {
+    this.setState({
+      filter: 'Completed',
+    });
+  }
+
   handleTodoClick(todo) {
-    console.log('handele App');
     const stateCopy = Object.assign([], this.state.todos);
     stateCopy[todo.id].status = todo.status;
     this.setState({
       todos: stateCopy,
     });
-    console.log(this.state.todos);
   }
 
   render() {
-    console.log('render');
-    console.log(this.state.todos);
     return (
       <div className="app">
         <h1>TODO Management</h1>
@@ -36,9 +51,15 @@ class App extends Component {
           onTodoSubmit={this.handleTodoSubmit.bind(this)}
         />
         <TodoList
+          filter={this.state.filter}
           todos={this.state.todos}
           onTodoClick={this.handleTodoClick.bind(this)}
         />
+        <div className="filter-list">
+          <span className="filter-name" onClick={this.handleAll.bind(this)}>All</span>
+          <span className="filter-name" onClick={this.handleActive.bind(this)}>Active</span>
+          <span className="filter-name" onClick={this.handleComplete.bind(this)}>Completed</span>
+        </div>
       </div>
     );
   }

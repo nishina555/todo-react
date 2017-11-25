@@ -1,4 +1,3 @@
-// import React, { Component } from 'react';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -11,13 +10,16 @@ class TodoList extends React.PureComponent {
   render() {
     const todos = [];
     for (let i = 0; i < this.props.todos.length; i += 1) {
-      todos.push(<Todo
-        key={i}
-        id={i}
-        title={this.props.todos[i].title}
-        status={this.props.todos[i].status}
-        onTodoClick={this.onTodoClick.bind(this)}
-      />);
+      const todo = this.props.todos[i];
+      if (todo.status === this.props.filter || this.props.filter === 'All') {
+        todos.push(<Todo
+          key={i}
+          id={i}
+          title={todo.title}
+          status={todo.status}
+          onTodoClick={this.onTodoClick.bind(this)}
+        />);
+      }
     }
     return (
       <ul>
@@ -29,6 +31,8 @@ class TodoList extends React.PureComponent {
 
 TodoList.propTypes = {
   todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onTodoClick: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };
 
 export default TodoList;

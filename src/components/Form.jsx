@@ -1,5 +1,5 @@
-// import React from 'react';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Form extends Component {
   handlesubmit(e) {
@@ -14,7 +14,6 @@ class Form extends Component {
       title,
       status: 'Active',
     });
-
     this.refs.title.value = '';
   }
 
@@ -33,5 +32,9 @@ class Form extends Component {
     );
   }
 }
+
+Form.propTypes = {
+  onTodoSubmit: PropTypes.func.isRequired,
+};
 
 export default Form;

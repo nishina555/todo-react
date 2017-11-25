@@ -2,3 +2,14 @@
   width: 350px;
   margin: 0 auto;
 }
+
+.filter-list {
+  display: flex;
+}
+
+.filter-name {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  // background: #60B99A;
+}
