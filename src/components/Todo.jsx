@@ -16,7 +16,7 @@ class Todo extends Component {
     };
 
     return (
-      <li style={style} onClick={this.onTodoClick.bind(this)}>
+      <li className="todo" style={style} onClick={this.onTodoClick.bind(this)}>
         {this.props.title}
       </li>
     );
